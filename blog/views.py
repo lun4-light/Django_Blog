@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 
-from .models import Post, Category
+from .models import Post, Category, Tag
 
 
 class PostList(ListView):
@@ -42,3 +42,13 @@ def categories_page(request, slug):
     }
 
     return render(request, 'blog/post_list.html', context)
+
+
+def tag_page(request, slug):
+    tag = Tag.objects.get(slug=slug)
+    post_list = tag.post_set.all()
+
+    context = {
+        'tag': tag,
+        'post_list': post_list
+    }
