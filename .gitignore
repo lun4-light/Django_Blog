@@ -133,3 +133,6 @@ dmypy.json
 
 #django files
 migrations/
+
+#static files
+_media/
