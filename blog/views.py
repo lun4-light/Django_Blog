@@ -52,3 +52,5 @@ def tag_page(request, slug):
         'tag': tag,
         'post_list': post_list
     }
+
+    return render(request, 'blog/post_list.html', context)
