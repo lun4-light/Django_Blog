@@ -24,4 +24,11 @@ class Post(models.Model):
 
     def get_file_name(self):
         return os.path.basename(self.file_upload.name)
-# Create your models here.
+
+
+class Category(models.Model):
+    name = models.CharField(max_length=50, unique=True)
+    slug = models.SlugField(max_length=200, unique=True, allow_unicode=True)
+
+    def __str__(self):
+        return self.name
